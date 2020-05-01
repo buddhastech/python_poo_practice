@@ -6,41 +6,58 @@ class ZeroValuesException(Exception):
 
         return "ZeroValueException: {}".format(self.mensaje)
 
-def validar_cedula(cedula):
-    digitos = ['0','1','2','3','4','5','6','7','8','9']
+class ValidationsMethods(object):
 
-    response = False
-    for digito in cedula:
-        if digito in digitos:
-            response = True   
+    def validar_cedula(self,cedula):
+        digitos = ['0','1','2','3','4','5','6','7','8','9']
 
-        if not(digito in digitos):
-            return False
+        response = False
+        for digito in cedula:
+            if digito in digitos:
+                response = True   
 
-    return response
+            if not(digito in digitos):
+                return False
+
+        return response
     
-def validar_nombre(nombre):
-    numeros_caracterest = ['0','1','2','3','4','5','6','7','8','9']
+    def validar_nombre(self,nombre):
+        numeros_caracterest = ['0','1','2','3','4','5','6','7','8','9']
 
-    response = False
+        response = False
 
-    for caracter in nombre:
-        if caracter in numeros_caracterest:
-            return False
-        else:
-            response = True
+        for caracter in nombre:
+            if caracter in numeros_caracterest:
+                return False
+            else:
+                response = True
 
-    return response
+        return response
 
-def validar_apellidos(apellidos):
-    numeros_caracterest = ['0','1','2','3','4','5','6','7','8','9']
+    def validar_apellidos(self,apellidos):
 
-    response = False
+        numeros_caracterest = ['0','1','2','3','4','5','6','7','8','9']
 
-    for caracter in apellidos:
-        if caracter in numeros_caracterest:
-            return False
-        else:
-            response = True
+        response = False
 
-    return response
+        for caracter in apellidos:
+            if caracter in numeros_caracterest:
+                return False
+            else:
+                response = True
+
+        return response
+
+    def validar_edad(self,edad):
+        numeros = ['0','1','2','3','4','5','6','7','8','9']
+
+        response = False
+        for numero in edad:
+            if numero in numeros:
+                response = True   
+
+            if not(numero in numeros):
+                return False
+
+        return response
+
