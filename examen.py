@@ -1,8 +1,8 @@
 from exceptions.exceptions import ValidationsMethods as validation
 
-class Persona(object):
+class Persona(object): # Clase Persona
     
-    def __init__(self):
+    def __init__(self): # Constructor que contiene los atributos de persona
         self.nombre = ''
         self.apellidos = ''
         self.cedula = ''
@@ -11,10 +11,10 @@ class Persona(object):
         self.edad = ''
 
 
-    def asignar_valores(self):
+    def asignar_valores(self):  # método para asignar los valores a los atributos
         while True:
             self.cedula = input("Ingrese la cedula del estudiante: ")
-            if validation.validar_cedula(self, self.cedula):
+            if validation.validar_cedula(self, self.cedula):  # método para validación de la cedula
 
                 self.nombre = input("Ingrese el nombre del estudiante: ")
                 if validation.validar_nombre(self, self.nombre):
@@ -42,11 +42,11 @@ class Persona(object):
             else:
                 print("Ingrese una cedula valida")
     
-class Puntaje(Persona):
-    def __init__(self):
+class Puntaje(Persona):  # Clase Puntaje
+    def __init__(self):  # método constructor de la clase Puntaje
         Persona.__init__(self)  # llamada del método constructor de la clase Persona
-        self.respuestas_examen = []
-        self.respuestas_estudiante = []
+        self.respuestas_examen = []  # arreglo para almacenar las respuestas del examen
+        self.respuestas_estudiante = []  # arreglo para almacenar las respuestas del estudiante
         self.respuestas_correctas = 0
         self.respuestas_incorrectas = 0
 
@@ -77,6 +77,8 @@ class Puntaje(Persona):
             print("File Not Found: ", error)
 
     def validar_respuestas(self):
+        # compara las respuestas de abajo hacía arriba
+        # entre las respuestas del examen y las respuestas del estudiante
         contador = -1
         for respuesta in self.respuestas_examen:
             contador += 1
@@ -86,7 +88,7 @@ class Puntaje(Persona):
                 self.respuestas_incorrectas += 1
 
     def mostrar_datos(self):
-        
+
         print("\nCedula: {}\nNombre: {}\nApellidos: {}\nGrupo: {}\nLugar: {}\nEdad{}".format(self.cedula,
         self.nombre, self.apellidos, self.grupo, self.lugar_residencia, self.edad))
         
@@ -125,5 +127,5 @@ class Puntaje(Persona):
             elif menu_respuesta == '6':
                 break
 
-Diego = Puntaje()
+Diego = Puntaje()  # objeto Puntaje
 Diego.menu()
