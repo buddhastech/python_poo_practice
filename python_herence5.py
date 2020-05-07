@@ -7,7 +7,7 @@ class Product(object):
         self.cost = input('Insert the cost: ')
 
     def show_data(self, *args):
-        print("\nPRODUCT FACTURE\n")
+        print("\n == PRODUCT FACTURE == \n")
         
         print("Name: {} \nMaker: {} \nWeight: {}\nCost: {}"
         .format(self.name, self.maker, self.weight, self.cost))
